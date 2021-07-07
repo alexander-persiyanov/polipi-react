@@ -20,3 +20,34 @@
 .App-link {
   color: #09d3ac;
 }
+
+.router-navigation>a{
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.coverflow__container__1P-xE{
+background-color: transparent;
+}
+
+/* #coverflow__arrow1__2X2XF .coverflow__arrow__IDi7v.coverflow__right__1tzAF{
+  right: 75px;
+}
+#coverflow__arrow1__2X2XF .coverflow__arrow__IDi7v.coverflow__left__PhMc6{
+  left:75px;
+} */
+.coverflow__figure__3bk_C{
+  box-shadow: none;
+  -webkit-box-reflect: below 1px -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0));
+}
+.coverflow__cover__25-7e{
+  box-shadow:none;
+}
+
+#coverflow__arrow1__2X2XF .coverflow__arrow__IDi7v span, #coverflow__arrow1__2X2XF .coverflow__arrow__IDi7v:before, #coverflow__arrow1__2X2XF .coverflow__arrow__IDi7v:after{
+  width: 30px;
+}
+.coverflow__arrowWrapper__3qbYP{
+  align-items:flex-start;
+  width: 100%;
+}

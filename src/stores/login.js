@@ -5,27 +5,34 @@ import axios from 'axios';
 
 const SET_LOGIN_DATA = 'SET_LOGIN_DATA';
 const SET_LOGIN_SESSION = 'SET_LOGIN_SESSION';
+const SET_LOGIN_FIELD_VALUE ='SET_LOGIN_FIELD_VALUE';
+const DELETE_LOGIN_DATA ='DELETE_LOGIN_DATA';
 
 class LoginStore extends EventEmitter{
     constructor(){
         // alert("cons");
         super();
-        this.data = {           
+        this.data = {     
+            fieldLoginValue:'',       
             isLogged: localStorage.getItem('logged_loc_storage') == 'TRUE',
+            error:false,
             prova:true,
         };
         Dispatcher.register((payload)=> {
             switch (payload.actionType) {
                 case SET_LOGIN_DATA:
-                    // console.log(payload);
+                    console.log(payload);
                     // let result = this.data.isLogged = payload.data;
                     let login =  payload.data.login;       //'hobbit'
                     let password =  payload.data.password; //'Manuel73'
 
                     this.getLogin(login,password).then((response)=>{ 
-                        this.data.isLogged = payload.data;
-                        localStorage.setItem('logged_loc_storage',response);
-                        this.emit('logged-loaded', response);
+                       
+                        if(response){
+                            this.data.isLogged = payload.data;
+                            localStorage.setItem('logged_loc_storage',response);
+                            this.emit('logged-loaded', response);
+                         }
                     });
                     
                        
@@ -33,6 +40,19 @@ class LoginStore extends EventEmitter{
                 case SET_LOGIN_SESSION:
                       
                        this.emit('logged-loaded',  this.data.isLogged);
+
+                break;
+
+                case SET_LOGIN_FIELD_VALUE:
+                    // console.log(this.data.fieldLoginValue);
+                    this.data.fieldLoginValue =  payload.data.value;
+                break;
+
+                case DELETE_LOGIN_DATA:
+                        localStorage.clear();
+                        this.data.isLogged = false;
+                        this.data.fieldLoginValue = '';
+                        this.emit('delete-login',  this.data.isLogged);
 
                 break;
                 
@@ -63,10 +83,18 @@ class LoginStore extends EventEmitter{
                 tiporeply: 'P'
               }
         })
-        .then(function (response) {
+        .then((response)=>{
+           
             // handle success
-         
-            return response.data;
+            //  console.log(response.data.includes("TRUE"));
+             if(response.data.includes("TRUE")){
+                 return true;
+             }else{
+                this.data.error = true;
+                // console.log(this.data.error);
+                return false;
+             }
+           
           
            
         })

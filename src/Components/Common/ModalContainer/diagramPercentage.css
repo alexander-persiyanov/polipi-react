@@ -1,0 +1,37 @@
+.diagram{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+}
+.diagram img{
+    width: 200px;
+    text-align: center;
+
+}
+.diagram .point-container{
+    position: absolute;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    top: 46px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-box-shadow: 0px 6px 14px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -5px rgba(0,0,0,0.75);
+
+
+
+}
+.diagram .point-container .point{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+
+}
