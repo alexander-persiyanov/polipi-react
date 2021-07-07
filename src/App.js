@@ -57,7 +57,7 @@ class App extends React.Component  {
    
   }
 
-//callback per aprire e chiudere modale
+//callback per aprire e chiudere modale.
 handlerModal(){
   this.setState({modalState:!this.state.modalState});
  
